@@ -1,4 +1,3 @@
----
 version: "3.8"
 services:
   homepage:
@@ -10,13 +9,11 @@ services:
       - PGID=1000
     ports:
       - 80:3000
-    networks:
-      homeepage: {}
     volumes:
       - homepage-config:/app/config # Shared volume for homepage config
       - homepage-config-images:/app/public/images # Separate volume for images
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
-    restart: unless-stopped  
+    restart: unless-stopped
   code-server:
     image: lscr.io/linuxserver/code-server:latest
     container_name: code-server
@@ -31,10 +28,10 @@ services:
       - homepage-config:/app/homepage # Same shared volume for homepage config
     ports:
       - 8443:8443
-    networks:
-      homeepage: {}
     restart: unless-stopped
 volumes:
-  homepage-config:
-  homepage-config-images:
-  code-server-config:
+  homepage-config: null
+  homepage-config-images: null
+  code-server-config: null
+networks:
+  homepage: {}
