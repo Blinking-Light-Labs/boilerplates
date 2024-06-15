@@ -11,6 +11,7 @@
 
 - [Pi Docker Install](./assets/scripts/pi-docker-install.sh) - script to install docker on raspberry pi.
 - [Portainer Installer](./assets/scripts/portainer-install.sh) - script to install portainer on docker.
+- [Dockge Installer](./assets/scripts/dockge-install.sh) - script to install dockge on docker.
 
 
 ## :japanese_castle: Stacks
@@ -26,4 +27,11 @@
 ## :file_folder: Configs
 
 - [Homepage](./assets/homepage-configs/) - Configs for [Homepage](https://gethomepage.dev/latest/).
+
+
+
+## :memo: Notes
+
+> [!NOTE]
+> The script to install docker is mostly for supported installs via dockers website. If you're looking for a better way to install docker on a server try out my [Ez-Docker-Installer](https://github.com/ColoredBytes/Ez-Docker-Installer) script.
 
