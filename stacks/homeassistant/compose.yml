@@ -2,6 +2,7 @@
 version: "3.8"
 homeassistant:
     container_name: homeassistant
+    hostname: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
       - /opt/stacks/homeassistant/config:/config
