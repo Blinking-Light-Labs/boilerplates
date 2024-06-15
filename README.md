@@ -9,12 +9,12 @@
 
 ## :scroll: Scripts
 
-- [Dockge Installer](./assets/scripts/dockge-install.sh) - script provided from the creator to install Dockge.
 - [Pi Docker Install](./assets/scripts/pi-docker-install.sh) - script to install docker on raspberry pi.
 
 
 ## :japanese_castle: Stacks
 
+- [freshrss](./stacks/freshrss/) - compose file to spin up a freshrss container.
 - [homeassistant](./stacks/homeassistant/) - compose file to spin up a homeassistant container.
 - [Homepage](./stacks/homepage/) - compose stack for homepage and code-server. code-server is used to edit on the fly.
 - [MariaDB](./stacks/mariadb/) - compose a file to spin up a MariaDB container.

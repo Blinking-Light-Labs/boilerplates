@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+  freshrss:
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
+    ports:
+      - 8080:80
+    environment:
+      - TZ=America/Detroit
+      - CRON_MIN=1,31
+    volumes:
+      - freshrss_data:/var/www/FreshRSS/data
+      - freshrss_extensions:/var/www/FreshRSS/extensions
+    container_name: freshrss
+    hostname: freshrss
+    image: freshrss/freshrss
+volumes:
+  freshrss_data: {}
+  freshrss_extensions: {}
+networks:
+  freshrss: {}
