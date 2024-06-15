@@ -10,6 +10,7 @@
 ## :scroll: Scripts
 
 - [Pi Docker Install](./assets/scripts/pi-docker-install.sh) - script to install docker on raspberry pi.
+- [Portainer Installer](./assets/scripts/portainer-install.sh) - script to install portainer on docker.
 
 
 ## :japanese_castle: Stacks
