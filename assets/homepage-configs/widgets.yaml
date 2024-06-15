@@ -5,7 +5,7 @@
 
 # logo config
 - logo:
-    icon: /icons/custom/avataaars.png # optional
+    icon: /icons/custom/coding.png 
 
     
 # ressoruce config
@@ -18,7 +18,7 @@
     provider: custom
     url: https://searx.jersh.tech/search?q=
     target: _blank
-    showSearchSuggestions: true # Optional
+    showSearchSuggestions: true 
 - openweathermap:
     latitude: 42.6405912
     longitude: -84.5152545
