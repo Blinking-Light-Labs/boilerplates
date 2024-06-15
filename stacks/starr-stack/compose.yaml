@@ -1,0 +1,124 @@
+---
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /portainer/Files/AppData/Config/prowlarr:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /portainer/Files/AppData/Config/radarr:/config
+      - movies:/mnt/nas/movies
+      - downloads:/app/qBittorrent/downloads
+      
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+  
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /portainer/Files/AppData/Config/sonarr:/config
+      - shows:/mnt/nas/shows
+      - downloads:/app/qBittorrent/downloads
+      
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+  
+  unpackerr:
+    container_name: unpackerr
+    image: ghcr.io/hotio/unpackerr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+       # Sonarr Config
+      - UN_SONARR_0_URL=$UN_SONARR_0_URL
+      - UN_SONARR_0_API_KEY=$UN_SONARR_0_API_KEY
+      - UN_SONARR_1_URL=$UN_SONARR_1_URL
+      - UN_SONARR_1_API_KEY=$UN_SONARR_1_API_KEY
+      
+      # Radarr Config
+      - UN_RADARR_0_URL=$UN_RADARR_0_URL
+      - UN_RADARR_0_API_KEY=$UN_RADARR_0_API_KEY
+      - UN_RADARR_1_URL=$UN_RADARR_1_URL
+      - UN_RADARR_1_API_KEY=$UN_RADARR_1_API_KEY
+    restart: unless-stopped
+      
+    volumes:
+      - /portainer/Files/AppData/Config/Unpackerr:/config
+      - downloads:/app/qBittorrent/downloads
+  radarr-anime:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr-anime
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /portainer/Files/AppData/Config/Radarr-Anime:/config
+      - anime-movies:/mnt/nas/anime-movies
+      - downloads:/app/qBittorrent/downloads
+    ports:
+      - 6878:7878
+    restart: unless-stopped  
+    
+  sonarr-anime:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr-anime
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /portainer/Files/AppData/Config/Sonarr-Anime:/config
+      - anime:/mnt/nas/anime
+      - downloads:/app/qBittorrent/downloads
+    ports:
+      - 7989:8989
+    restart: unless-stopped
+  
+      
+volumes:
+   shows:
+    external: true
+   movies:
+    external: true
+   downloads:
+    external: true
+   anime-movies:
+    external: true
+   anime:
+    external: true 
+    
+      
+      
+
+
+
+   
+  
+    
+    
+  
