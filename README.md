@@ -26,7 +26,7 @@
 
 ## :file_folder: Configs
 
-- [Homepage](./assets/homepage-configs/) - Configs for [Homepage](https://gethomepage.dev/latest/).
+- [Homepage Extras](./assets/homepage-extras/) - Extras for [Homepage](https://gethomepage.dev/latest/) mostly icons.
 
 
 
