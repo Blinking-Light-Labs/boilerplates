@@ -10,7 +10,7 @@
 ## :scroll: Scripts
 
 - [Dockge Installer](./assets/scripts/dockge-install.sh) - script provided from the creator to install Dockge.
-- [Pi Docker Install](./assets/scripts/docker-install.sh) - script to install docker on raspberry pi.
+- [Pi Docker Install](./assets/scripts/pi-docker-install.sh) - script to install docker on raspberry pi.
 
 
 ## :japanese_castle: Stacks
