@@ -21,6 +21,7 @@
 - [MariaDB](./stacks/mariadb/) - compose a file to spin up a MariaDB container.
 - [Starr Stack](./stacks/starr-stack/) - compose stack to spin up an arr stack.
 - [Utility Stack](./stacks/utility-stack/) - compose stack that contains watchtower and dozzle.
+- [Vaultwarden](./stacks/vaultwarden/) - compose a file to spin up a vaultwarden container.
 
 ## :file_folder: Configs
 

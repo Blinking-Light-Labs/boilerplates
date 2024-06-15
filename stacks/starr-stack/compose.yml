@@ -3,12 +3,13 @@ services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
+    hostname: prowlarr
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /portainer/Files/AppData/Config/prowlarr:/config
+      - /opt/docker/stacks/config/prowlarr:/config
     ports:
       - 9696:9696
     restart: unless-stopped
@@ -16,12 +17,13 @@ services:
   radarr:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
+    hostname: radarr
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /portainer/Files/AppData/Config/radarr:/config
+      - /opt/docker/stacks/config/radarr:/config
       - movies:/mnt/nas/movies
       - downloads:/app/qBittorrent/downloads
       
@@ -32,12 +34,13 @@ services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
+    hostname: sonarr
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /portainer/Files/AppData/Config/sonarr:/config
+      - /opt/docker/stacks/config/sonarr:/config
       - shows:/mnt/nas/shows
       - downloads:/app/qBittorrent/downloads
       
@@ -47,6 +50,7 @@ services:
   
   unpackerr:
     container_name: unpackerr
+    hostname: unpackerr
     image: ghcr.io/hotio/unpackerr
     environment:
       - PUID=1000
@@ -67,17 +71,18 @@ services:
     restart: unless-stopped
       
     volumes:
-      - /portainer/Files/AppData/Config/Unpackerr:/config
+      - /opt/docker/stacks/config/unpackerr:/config
       - downloads:/app/qBittorrent/downloads
   radarr-anime:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr-anime
+    hostname: radarr-anime
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /portainer/Files/AppData/Config/Radarr-Anime:/config
+      - /opt/docker/stacks/config/radarr-anime:/config
       - anime-movies:/mnt/nas/anime-movies
       - downloads:/app/qBittorrent/downloads
     ports:
@@ -87,12 +92,13 @@ services:
   sonarr-anime:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr-anime
+    hostname: sonarr-anime
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /portainer/Files/AppData/Config/Sonarr-Anime:/config
+      - /opt/docker/stacks/config/sonarr-anime:/config
       - anime:/mnt/nas/anime
       - downloads:/app/qBittorrent/downloads
     ports:
