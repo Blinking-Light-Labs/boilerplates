@@ -19,4 +19,4 @@ docker ps
 sleep 10
 
 # print message indicating the IP address and port where portainer is running.
-echo "Docker has been installed and is now running at http://${HOST_IP}:9443"
+echo "Docker has been installed and is now running at https://${HOST_IP}:9443"
