@@ -4,6 +4,8 @@ services:
     image: 'vaultwarden/server:latest'
     ports:
       - '8080:80'
+    networks:
+      - vaultwarden
     volumes:
       - vw-data:/data
     container_name: vaultwarden

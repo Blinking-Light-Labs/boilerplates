@@ -7,6 +7,8 @@ services:
         max-size: 10m
     ports:
       - 8080:80
+    networks:
+      - freshrss
     environment:
       - TZ=America/Detroit
       - CRON_MIN=1,31

@@ -12,6 +12,8 @@ services:
       - /opt/docker/stacks/config/prowlarr:/config
     ports:
       - 9696:9696
+    networks:
+      - arrstack
     restart: unless-stopped
 
   radarr:
@@ -26,9 +28,10 @@ services:
       - /opt/docker/stacks/config/radarr:/config
       - movies:/mnt/nas/movies
       - downloads:/app/qBittorrent/downloads
-      
     ports:
       - 7878:7878
+    networks:
+      - arrstack
     restart: unless-stopped
   
   sonarr:
@@ -43,9 +46,11 @@ services:
       - /opt/docker/stacks/config/sonarr:/config
       - shows:/mnt/nas/shows
       - downloads:/app/qBittorrent/downloads
-      
     ports:
       - 8989:8989
+    networks:
+      - arrstack
+    
     restart: unless-stopped
   
   unpackerr:
@@ -87,6 +92,8 @@ services:
       - downloads:/app/qBittorrent/downloads
     ports:
       - 6878:7878
+    networks:
+      - arrstack
     restart: unless-stopped  
     
   sonarr-anime:
@@ -103,6 +110,8 @@ services:
       - downloads:/app/qBittorrent/downloads
     ports:
       - 7989:8989
+    networks:
+      - arrstack
     restart: unless-stopped
   
       
@@ -117,7 +126,8 @@ volumes:
     external: true
    anime:
     external: true 
-    
+networks:
+  arrstack
       
       
 
