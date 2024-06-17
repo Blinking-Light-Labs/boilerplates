@@ -113,6 +113,20 @@ services:
     networks:
       - arrstack
     restart: unless-stopped
+
+  overseerr:
+    image: linuxserver/overseerr:1.33.2
+    container_name: overseerr
+    hostname: overseerr
+    restart: unless-stopped
+    environment:
+      - TZ=America/Detroit # Specify a timezone to use
+      - PUID=1000 # User ID to run as
+      - PGID=1000 # Group ID to run as
+    volumes:
+      - /opt/docker/stacks/config/overseerr:/config # Contains all relevant configuration files.
+    ports:
+      - 5055:5055/tcp # Web UI  
   
       
 volumes:
