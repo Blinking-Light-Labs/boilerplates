@@ -11,7 +11,7 @@ services:
       - 3000:3000
     volumes:
       - homepage-config:/app/config # Shared volume for homepage config
-      - homepage-config-images:/app/public/images # Separate volume for images
+      - /opt/docker/homepage/icons:/app/public/images # Separate volume for images
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
     restart: unless-stopped
     networks:
@@ -29,6 +29,7 @@ services:
     volumes:
       - code-server-config:/config
       - homepage-config:/app/homepage # Same shared volume for homepage config
+      - /opt/docker/homepage/icons:/app/homepage/images
     ports:
       - 8443:8443
     restart: unless-stopped
