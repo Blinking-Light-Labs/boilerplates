@@ -37,9 +37,9 @@ services:
       - homepage
 
 volumes:
-  homepage-config: null
-  homepage-config-images: null
-  code-server-config: null
+  homepage-config:
+  homepage-config-images:
+  code-server-config:
 
 networks:
-  homepage: {}
+  homepage:
