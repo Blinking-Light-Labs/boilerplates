@@ -1,0 +1,27 @@
+version: "3.3"
+services:
+  playit-docker:
+    container_name: playit-docker
+    hostname: playit-docker
+    image: pepaondrugs/playitgg-docker:latest
+    volumes:
+        - playit-volume:/app
+    networks:
+      - proxy
+    restart: unless-stopped
+  
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared
+    container_name: cloudflare-tunnel
+    hostname: cloudflare-tunnel
+    environment:
+      - TUNNEL_TOKEN=
+    networks:
+      - proxy
+   
+    
+volumes:
+    playit-volume:
+        external: false
+networks:
+  proxy: {}
