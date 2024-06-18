@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    hostname: searxng
+    mem_limit: 8g
+    cpu_shares: 2048
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      -  /opt/docker/stacks/config/searxng:/etc/searxng:rw 
+    restart: unless-stopped
+    ports:
+      - 5147:8080
