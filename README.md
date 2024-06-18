@@ -16,6 +16,11 @@
 
 ## :japanese_castle: Stacks
 
+### Below is Colapsable list of all the possible docker configs I have put together.
+
+<details>
+<summary> Click Here </summary>
+
 - [FreshRSS](./stacks/freshrss/) - compose file to spin up a freshrss container.
 - [Homepage](./stacks/homepage/) - compose stack for homepage and code-server. code-server is used to edit on the fly.
 - [Proxy Stack](./stacks/proxy-stack/) - compose stack for cloudflare tunnels and playit.gg agent.
@@ -23,6 +28,8 @@
 - [Starr Stack](./stacks/starr-stack/) - compose stack to spin up an arr stack.
 - [Utility Stack](./stacks/utility-stack/) - compose stack that contains watchtower and dozzle.
 - [Vaultwarden](./stacks/vaultwarden/) - compose a file to spin up a vaultwarden container.
+
+</details>
 
 ## :file_folder: Configs
 
