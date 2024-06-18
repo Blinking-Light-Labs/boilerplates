@@ -1,4 +1,3 @@
----
 services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -33,7 +32,7 @@ services:
     networks:
       - arrstack
     restart: unless-stopped
-  
+
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
@@ -50,34 +49,32 @@ services:
       - 8989:8989
     networks:
       - arrstack
-    
     restart: unless-stopped
-  
+
   unpackerr:
+    image: ghcr.io/hotio/unpackerr
     container_name: unpackerr
     hostname: unpackerr
-    image: ghcr.io/hotio/unpackerr
     environment:
       - PUID=1000
       - PGID=1000
       - UMASK=002
       - TZ=Etc/UTC
-       # Sonarr Config
-      - UN_SONARR_0_URL=$UN_SONARR_0_URL
-      - UN_SONARR_0_API_KEY=$UN_SONARR_0_API_KEY
-      - UN_SONARR_1_URL=$UN_SONARR_1_URL
-      - UN_SONARR_1_API_KEY=$UN_SONARR_1_API_KEY
-      
+      # Sonarr Config
+      - UN_SONARR_0_URL=
+      - UN_SONARR_0_API_KEY=
+      - UN_SONARR_1_URL=
+      - UN_SONARR_1_API_KEY=
       # Radarr Config
-      - UN_RADARR_0_URL=$UN_RADARR_0_URL
-      - UN_RADARR_0_API_KEY=$UN_RADARR_0_API_KEY
-      - UN_RADARR_1_URL=$UN_RADARR_1_URL
-      - UN_RADARR_1_API_KEY=$UN_RADARR_1_API_KEY
-    restart: unless-stopped
-      
+      - UN_RADARR_0_URL=
+      - UN_RADARR_0_API_KEY=
+      - UN_RADARR_1_URL=
+      - UN_RADARR_1_API_KEY=
     volumes:
       - /opt/docker/stacks/config/unpackerr:/config
       - downloads:/app/qBittorrent/downloads
+    restart: unless-stopped
+
   radarr-anime:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr-anime
@@ -94,8 +91,8 @@ services:
       - 6878:7878
     networks:
       - arrstack
-    restart: unless-stopped  
-    
+    restart: unless-stopped
+
   sonarr-anime:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr-anime
@@ -118,37 +115,29 @@ services:
     image: linuxserver/overseerr:1.33.2
     container_name: overseerr
     hostname: overseerr
-    restart: unless-stopped
     environment:
-      - TZ=America/Detroit # Specify a timezone to use
-      - PUID=1000 # User ID to run as
-      - PGID=1000 # Group ID to run as
+      - TZ=America/Detroit
+      - PUID=1000
+      - PGID=1000
     volumes:
-      - /opt/docker/stacks/config/overseerr:/config # Contains all relevant configuration files.
+      - /opt/docker/stacks/config/overseerr:/config
     ports:
-      - 5055:5055/tcp # Web UI  
-  
-      
+      - 5055:5055/tcp
+    networks:
+      - arrstack
+    restart: unless-stopped
+
 volumes:
-   shows:
+  shows:
     external: true
-   movies:
+  movies:
     external: true
-   downloads:
+  downloads:
     external: true
-   anime-movies:
+  anime-movies:
     external: true
-   anime:
-    external: true 
+  anime:
+    external: true
+
 networks:
-  arrstack
-      
-      
-
-
-
-   
-  
-    
-    
-  
+  arrstack:
