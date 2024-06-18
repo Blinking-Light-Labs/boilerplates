@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.9"
 services:
   playit-docker:
     container_name: playit-docker
@@ -10,14 +10,15 @@ services:
       - proxy
     restart: unless-stopped
   
-  cloudflare-tunnel:
+  cloudflared:
     image: cloudflare/cloudflared
     container_name: cloudflare-tunnel
     hostname: cloudflare-tunnel
-    environment:
-      - TUNNEL_TOKEN=
+    command: 'tunnel --no-autoupdate run --token '
     networks:
       - proxy
+    restart: unless-stopped
+
    
     
 volumes:
