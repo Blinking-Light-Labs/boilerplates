@@ -5,7 +5,7 @@
 
 # Variables
 HOST_IP=$(hostname -I | awk '{print $1}')
-COMPOSE_FILE="https://dockge.kuma.pet/compose.yaml?port=5001&stacksPath=%2Fopt%2Fstacks"
+COMPOSE_FILE="https://dockge.kuma.pet/compose.yaml?port=80&stacksPath=%2Fopt%2Fstacks"
 
 
 # Create directories that store your stacks and store Dockge's stack
