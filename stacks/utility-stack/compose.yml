@@ -6,7 +6,7 @@ services:
     environment:
       - TZ=America/Detroit
       - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_SCHEDULE=0 0 3 * * 2
+      - WATCHTOWER_SCHEDULE=0 3 * * *
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
