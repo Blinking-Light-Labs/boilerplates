@@ -10,13 +10,12 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - homepage-config:/app/config # Shared volume for homepage config
-      - /opt/docker/homepage/icons:/app/public/images # Separate volume for images
-      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+      - homepage-config:/app/config
+      - /opt/docker/homepage/icons:/app/public/images
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     networks:
       - homepage
-
   code-server:
     image: lscr.io/linuxserver/code-server:latest
     container_name: code-server
@@ -25,21 +24,19 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Detroit
-      - DEFAULT_WORKSPACE=/app/homepage # Set to homepage config directory
+      - DEFAULT_WORKSPACE=/app/homepage
     volumes:
       - code-server-config:/config
-      - homepage-config:/app/homepage # Same shared volume for homepage config
+      - homepage-config:/app/homepage
       - /opt/docker/homepage/icons:/app/homepage/images
     ports:
       - 8443:8443
     restart: unless-stopped
     networks:
       - homepage
-
 volumes:
-  homepage-config:
-  homepage-config-images:
-  code-server-config:
-
+  homepage-config: null
+  homepage-config-images: null
+  code-server-config: null
 networks:
-  homepage:
+  homepage: null

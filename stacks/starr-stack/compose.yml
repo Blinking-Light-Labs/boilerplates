@@ -1,5 +1,4 @@
 services:
-  
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
@@ -15,7 +14,6 @@ services:
     networks:
       - arrstack
     restart: unless-stopped
-
   overseerr:
     image: linuxserver/overseerr:1.33.2
     container_name: overseerr
@@ -31,7 +29,6 @@ services:
     networks:
       - arrstack
     restart: unless-stopped
-
   radarr:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
@@ -49,7 +46,6 @@ services:
     networks:
       - arrstack
     restart: unless-stopped
-
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
@@ -67,7 +63,6 @@ services:
     networks:
       - arrstack
     restart: unless-stopped
-
   radarr-anime:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr-anime
@@ -85,7 +80,6 @@ services:
     networks:
       - arrstack
     restart: unless-stopped
-
   sonarr-anime:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr-anime
@@ -103,7 +97,6 @@ services:
     networks:
       - arrstack
     restart: unless-stopped
-
   unpackerr:
     image: ghcr.io/hotio/unpackerr
     container_name: unpackerr
@@ -113,12 +106,10 @@ services:
       - PGID=1000
       - UMASK=002
       - TZ=Etc/UTC
-      # Sonarr Config
       - UN_SONARR_0_URL=
       - UN_SONARR_0_API_KEY=
       - UN_SONARR_1_URL=
       - UN_SONARR_1_API_KEY=
-      # Radarr Config
       - UN_RADARR_0_URL=
       - UN_RADARR_0_API_KEY=
       - UN_RADARR_1_URL=
@@ -127,7 +118,6 @@ services:
       - /opt/docker/stacks/config/unpackerr:/config
       - downloads:/app/qBittorrent/downloads
     restart: unless-stopped
-
   tautulli:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli
@@ -143,9 +133,6 @@ services:
     networks:
       - arrstack
     restart: unless-stopped
-  
- 
-
 volumes:
   shows:
     external: true
@@ -157,6 +144,5 @@ volumes:
     external: true
   anime:
     external: true
-
 networks:
-  arrstack:
+  arrstack: null
