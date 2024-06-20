@@ -1,4 +1,5 @@
 services:
+  
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
@@ -11,6 +12,22 @@ services:
       - /opt/docker/stacks/config/prowlarr:/config
     ports:
       - 9696:9696
+    networks:
+      - arrstack
+    restart: unless-stopped
+
+  overseerr:
+    image: linuxserver/overseerr:1.33.2
+    container_name: overseerr
+    hostname: overseerr
+    environment:
+      - TZ=America/Detroit
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /opt/docker/stacks/config/overseerr:/config
+    ports:
+      - 5055:5055/tcp
     networks:
       - arrstack
     restart: unless-stopped
@@ -51,30 +68,6 @@ services:
       - arrstack
     restart: unless-stopped
 
-  unpackerr:
-    image: ghcr.io/hotio/unpackerr
-    container_name: unpackerr
-    hostname: unpackerr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=Etc/UTC
-      # Sonarr Config
-      - UN_SONARR_0_URL=
-      - UN_SONARR_0_API_KEY=
-      - UN_SONARR_1_URL=
-      - UN_SONARR_1_API_KEY=
-      # Radarr Config
-      - UN_RADARR_0_URL=
-      - UN_RADARR_0_API_KEY=
-      - UN_RADARR_1_URL=
-      - UN_RADARR_1_API_KEY=
-    volumes:
-      - /opt/docker/stacks/config/unpackerr:/config
-      - downloads:/app/qBittorrent/downloads
-    restart: unless-stopped
-
   radarr-anime:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr-anime
@@ -111,22 +104,30 @@ services:
       - arrstack
     restart: unless-stopped
 
-  overseerr:
-    image: linuxserver/overseerr:1.33.2
-    container_name: overseerr
-    hostname: overseerr
+  unpackerr:
+    image: ghcr.io/hotio/unpackerr
+    container_name: unpackerr
+    hostname: unpackerr
     environment:
-      - TZ=America/Detroit
       - PUID=1000
       - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+      # Sonarr Config
+      - UN_SONARR_0_URL=
+      - UN_SONARR_0_API_KEY=
+      - UN_SONARR_1_URL=
+      - UN_SONARR_1_API_KEY=
+      # Radarr Config
+      - UN_RADARR_0_URL=
+      - UN_RADARR_0_API_KEY=
+      - UN_RADARR_1_URL=
+      - UN_RADARR_1_API_KEY=
     volumes:
-      - /opt/docker/stacks/config/overseerr:/config
-    ports:
-      - 5055:5055/tcp
-    networks:
-      - arrstack
+      - /opt/docker/stacks/config/unpackerr:/config
+      - downloads:/app/qBittorrent/downloads
     restart: unless-stopped
-  
+
   tautulli:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli
