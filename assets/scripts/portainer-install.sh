@@ -16,7 +16,7 @@ docker run -d -p 80:8000 -p 443:9443 --name portainer --restart=always -v /var/r
 docker ps
 
 # take a quick nap before showing last message
-sleep 10
+sleep 5
 
 # print message indicating the IP address and port where portainer is running.
-echo "Portainer has been installed and is now running at https://${HOST_IP}:9443"
+echo "Portainer has been installed and is now running at https://${HOST_IP}"

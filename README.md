@@ -30,17 +30,8 @@
 
 </details>
 
-## :file_folder: Configs
-
-- [Homepage Extras](./assets/homepage-extras/) - Extras for [Homepage](https://gethomepage.dev/latest/) mostly icons.
-
-
 
 ## :memo: Notes
 
 > [!TIP]
 > The script to install docker is mostly for supported installs via dockers website. If you're looking for a better way to install docker on a server try out my [Ez-Docker-Installer](https://github.com/ColoredBytes/Ez-Docker-Installer) script.
-
-> [!NOTE]
-> Feel free to fork this repo and customize to your own liking!
-
