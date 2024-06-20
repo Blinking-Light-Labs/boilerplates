@@ -8,7 +8,7 @@
 # :link: Structure
 
 ## :scroll: Scripts
-
+- [Docker-API](./assets/scripts/docker-api-setup.sh) - script to setup docker's API. I use this mostly for homepage.
 - [Pi Docker Install](./assets/scripts/pi-docker-install.sh) - script to install docker on raspberry pi.
 - [Portainer Installer](./assets/scripts/portainer-install.sh) - script to install portainer on docker.
 - [Dockge Installer](./assets/scripts/dockge-install.sh) - script to install dockge on docker.
