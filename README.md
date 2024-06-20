@@ -34,4 +34,4 @@
 ## :memo: Notes
 
 > [!TIP]
-> The script to install docker is mostly for supported installs via dockers website. If you're looking for a better way to install docker on a server try out my [Ez-Docker-Installer](https://github.com/ColoredBytes/Ez-Docker-Installer) script.
+> The script to install docker is mostly for supported installs via dockers website. If you're looking for a better way to install docker on a server try out my [script](https://github.com/ColoredBytes/Ez-Docker-Installer).
