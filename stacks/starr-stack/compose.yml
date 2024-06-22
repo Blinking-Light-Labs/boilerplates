@@ -1,3 +1,8 @@
+opentofu_install() {
+curl --proto '=https' --tlsv1.2 -fsSL https://get.opentofu.org/install-opentofu.sh -o install-opentofu.sh
+chmod +x install-opentofu.sh
+./install-opentofu.sh --install-method deb
+rm install-opentofu.sh
 services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -12,7 +17,8 @@ services:
     ports:
       - 9696:9696
     networks:
-      - arrstack
+      arrstack:
+        ipv4_address: 172.20.0.5
     restart: unless-stopped
   overseerr:
     image: linuxserver/overseerr:1.33.2
@@ -27,7 +33,8 @@ services:
     ports:
       - 5055:5055/tcp
     networks:
-      - arrstack
+      arrstack:
+        ipv4_address: 172.20.0.10
     restart: unless-stopped
   radarr:
     image: lscr.io/linuxserver/radarr:latest
@@ -44,7 +51,8 @@ services:
     ports:
       - 7878:7878
     networks:
-      - arrstack
+      arrstack:
+        ipv4_address: 172.20.0.15
     restart: unless-stopped
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
@@ -61,7 +69,8 @@ services:
     ports:
       - 8989:8989
     networks:
-      - arrstack
+      arrstack:
+        ipv4_address: 172.20.0.20
     restart: unless-stopped
   radarr-anime:
     image: lscr.io/linuxserver/radarr:latest
@@ -78,7 +87,8 @@ services:
     ports:
       - 6878:6878
     networks:
-      - arrstack
+      arrstack:
+        ipv4_address: 172.20.0.25
     restart: unless-stopped
   sonarr-anime:
     image: lscr.io/linuxserver/sonarr:latest
@@ -95,7 +105,8 @@ services:
     ports:
       - 7989:7989
     networks:
-      - arrstack
+      arrstack:
+        ipv4_address: 172.20.0.30
     restart: unless-stopped
   unpackerr:
     image: ghcr.io/hotio/unpackerr
@@ -118,6 +129,9 @@ services:
       - /opt/docker/stacks/config/unpackerr:/config
       - downloads:/app/qBittorrent/downloads
     restart: unless-stopped
+    networks:
+      arrstack:
+        ipv4_address: 172.20.0.35
   tautulli:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli
@@ -131,7 +145,8 @@ services:
     ports:
       - 8181:8181
     networks:
-      - arrstack
+      arrstack:
+        ipv4_address: 172.20.0.40
     restart: unless-stopped
 volumes:
   shows:
@@ -145,4 +160,8 @@ volumes:
   anime:
     external: true
 networks:
-  arrstack: null
+  arrstack:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
