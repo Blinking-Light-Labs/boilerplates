@@ -15,7 +15,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     networks:
-      - homepage
+      - homepage-network
   code-server:
     image: lscr.io/linuxserver/code-server:latest
     container_name: code-server
@@ -33,10 +33,16 @@ services:
       - 8443:8443
     restart: unless-stopped
     networks:
-      - homepage
+      - homepage-network
 volumes:
-  homepage-config: null
-  homepage-config-images: null
-  code-server-config: null
+  homepage-config:
+    external:
+      true
+  homepage-config-images:
+    external:
+      true
+  code-server-config:
+    external:
+      true
 networks:
-  homepage: null
+  homepage-network:

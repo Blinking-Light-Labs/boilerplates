@@ -18,7 +18,7 @@ services:
     ports:
       - 9999:8080
     networks:
-      - utility
+      - utility-network
     restart: unless-stopped
   uptime-kuma:
     image: louislam/uptime-kuma:1
@@ -29,9 +29,9 @@ services:
     ports:
       - 3001:3001
     networks:
-      - utility
+      - utility-network
     restart: unless-stopped
 volumes:
-  uptime-kuma: null
+  uptime-kuma: 
 networks:
-  utility: {}
+  utility-network:
