@@ -21,14 +21,11 @@
 <details>
 <summary> Click Here </summary>
 
-- [FreshRSS](./stacks/freshrss/) - compose file to spin up a freshrss container.
 - [Homepage](./stacks/homepage/) - compose stack for homepage and code-server. code-server is used to edit on the fly.
 - [Monitoring](./stacks/monitoring/) - InfluxDB and Grafana Stack for close to real-time stats. 
 - [Proxy Stack](./stacks/proxy/) - compose stack for cloudflare tunnels and playit.gg agent.
 - [Starr Stack](./stacks/starr-stack/) - compose stack to spin up an arr stack.
 - [Utility Stack](./stacks/utility/) - compose stack that contains watchtower and dozzle.
-- [Vaultwarden](./stacks/vaultwarden/) - compose a file to spin up a vaultwarden container.
-
 
 </details>
 
