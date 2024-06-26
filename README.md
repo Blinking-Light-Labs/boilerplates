@@ -22,7 +22,8 @@
 <summary> Click Here </summary>
 
 - [Homepage](./stacks/homepage/) - compose stack for homepage and code-server. code-server is used to edit on the fly.
-- [Monitoring](./stacks/monitoring/) - InfluxDB and Grafana Stack for close to real-time stats. 
+- [Monitoring](./stacks/monitoring/) - InfluxDB and Grafana Stack for close to real-time stats.
+- [phpIPAM](./stacks/phpipam/) - phpIPAM for docker to help manage IP's
 - [Proxy Stack](./stacks/proxy/) - compose stack for cloudflare tunnels and playit.gg agent.
 - [Starr Stack](./stacks/starr-stack/) - compose stack to spin up an arr stack.
 - [Utility Stack](./stacks/utility/) - compose stack that contains watchtower and dozzle.
