@@ -14,7 +14,7 @@ services:
     container_name: cloudflare-tunnel
     hostname: cloudflare-tunnel
     command: tunnel --no-autoupdate run --token
-      eyJhIjoiZTUwNTk0YzQ5NTFmZmY2MzM1NGNiMzg2ZWEwMjgyYjQiLCJ0IjoiYjg4MDZlYTQtY2I3NS00NDY4LWJmOTgtZDExY2U2ZTBiMTI4IiwicyI6IlpXRTVZbVJoTXpRdFpqUmxNUzAwWlRKbExUZzRNV1l0WTJOaVpHTTVPV00yTWprdyJ9
+      
     networks:
       - proxy-network
     restart: unless-stopped
