@@ -3,26 +3,26 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana_container
-    restart: always
+    restart: unless-stopped
     ports:
       - 3000:3000
     networks:
-      - monitoring_network
+      - monitoring-network
     volumes:
       - grafana-volume:/var/lib/grafana
   influxdb:
     image: influxdb
     container_name: influxdb_container
-    restart: always
+    restart: unless-stopped
     ports:
       - 8086:8086
       - 8089:8089/udp
     networks:
-      - monitoring_network
+      - monitoring-network
     volumes:
       - influxdb-volume:/var/lib/influxdb
 networks:
-  monitoring_network:
+  monitoring-network:
 volumes:
   grafana-volume:
     external: true

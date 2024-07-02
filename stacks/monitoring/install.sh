@@ -8,4 +8,4 @@
   docker volume create grafana-volume
 
 # Create Networks
-docker network create monitoring_network
+docker network create monitoring-network
