@@ -21,7 +21,7 @@
 <details>
 <summary> Click Here </summary>
 
-- [Download](./stacks/download) - Stack for UseNET and Bittorrents.
+- [Download](./stacks/download/) - Stack for UseNET and Bittorrents.
 - [Homepage](./stacks/homepage/) - compose stack for homepage and code-server. code-server is used to edit on the fly.
 - [Monitoring](./stacks/monitoring/) - InfluxDB and Grafana Stack for close to real-time stats.
 - [phpIPAM](./stacks/phpipam/) - phpIPAM for docker to help manage IP's
