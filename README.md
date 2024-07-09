@@ -26,7 +26,6 @@
 - [Monitoring](./stacks/monitoring/) - InfluxDB and Grafana Stack for close to real-time stats.
 - [phpIPAM](./stacks/phpipam/) - phpIPAM for docker to help manage IP's
 - [Proxy Stack](./stacks/proxy/) - compose stack for cloudflare tunnels and playit.gg agent.
-- [Shlink](./stacks/Shlink/) - Compose File for Shlink link shortner.
 - [Starr Stack](./stacks/starr-stack/) - compose stack to spin up an arr stack.
 - [Utility Stack](./stacks/utility/) - compose stack that contains watchtower and dozzle.
 
