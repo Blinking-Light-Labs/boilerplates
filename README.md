@@ -24,6 +24,7 @@
 - [Download](./stacks/download/) - Stack for UseNET and Bittorrents.
 - [Homepage](./stacks/homepage/) - compose stack for homepage and code-server. code-server is used to edit on the fly.
 - [Monitoring](./stacks/monitoring/) - InfluxDB and Grafana Stack for close to real-time stats.
+- [Peppermint](./stacks/peppermint/) - Peppermint Help Desk Compose File.
 - [phpIPAM](./stacks/phpipam/) - phpIPAM for docker to help manage IP's
 - [Proxy Stack](./stacks/proxy/) - compose stack for cloudflare tunnels and playit.gg agent.
 - [Starr Stack](./stacks/starr-stack/) - compose stack to spin up an arr stack.
