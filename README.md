@@ -12,6 +12,6 @@ This Repository **Boilerplates** is my personal template collection. Here you'll
 ## Other Resources
 
 - [Dotfiles](https://github.com/christianlempa/dotfiles) - My personal configuration files on Windows,MacOS and Linux.
-- [Homelab Automation](https://github.com/christianlempa/homelab) - This is my scripts used in my lab amongst other things. 
+- [Homelab Automation](https://github.com/ColoredBytes/LabAutomation) - This is my scripts used in my lab amongst other things. 
 
 
