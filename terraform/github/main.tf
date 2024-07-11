@@ -1,13 +1,12 @@
-terraform {
-  required_providers {
-    github = {
-      source  = "integrations/github"
-      version = "~> 6.0"
-    }
-  }
-}
+resource "github_repository" "example" {
+  name        = "example"
+  description = "My awesome codebase"
 
-# Configure the GitHub Provider
-provider "github" {
-      token = var.token # or `GITHUB_TOKEN`
+  visibility = "public"
+
+  template {
+    owner                = "github"
+    repository           = "terraform-template-module"
+    include_all_branches = true
+  }
 }
