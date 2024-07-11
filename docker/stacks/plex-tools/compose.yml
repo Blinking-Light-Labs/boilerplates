@@ -1,0 +1,44 @@
+version: "3"
+services:
+  threadfin:
+    image: fyb3roptik/threadfin
+    container_name: threadfin
+    hostname: threadfin
+    ports:
+      - 34400:34400
+    networks:
+      plex-tools:
+        ipv4_address: 172.30.0.2
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Detroit
+    volumes:
+      - threadfin-data:/home/threadfin/conf
+      - threadfin-data:/tmp/threadfin:rw
+    restart: unless-stopped
+  tautulli:
+    image: ghcr.io/tautulli/tautulli
+    container_name: tautulli
+    hostname: tautulli
+    ports:
+      - 8181:8181
+    networks:
+      plex-tools:
+        ipv4_address: 172.30.0.3
+    volumes:
+      - /opt/docker/tautulli:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Detroit
+    restart: unless-stopped
+networks:
+  plex-tools:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+volumes:
+  threadfin-data:
+    driver: local
