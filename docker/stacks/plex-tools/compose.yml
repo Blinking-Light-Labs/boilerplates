@@ -17,6 +17,7 @@ services:
       - threadfin-data:/home/threadfin/conf
       - threadfin-data:/tmp/threadfin:rw
     restart: unless-stopped
+  
   tautulli:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli
@@ -33,6 +34,7 @@ services:
       - PGID=1000
       - TZ=America/Detroit
     restart: unless-stopped
+
 networks:
   plex-tools:
     driver: bridge
