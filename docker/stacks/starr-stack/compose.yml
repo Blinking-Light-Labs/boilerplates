@@ -1,3 +1,5 @@
+version: "2.3"
+
 services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -10,11 +12,12 @@ services:
     volumes:
       - /opt/docker/prowlarr:/config
     ports:
-      - 9696:9696
+      - "9696:9696"
     networks:
       arrstack:
         ipv4_address: 172.20.0.5
     restart: unless-stopped
+
   overseerr:
     image: linuxserver/overseerr:1.33.2
     container_name: overseerr
@@ -26,11 +29,12 @@ services:
     volumes:
       - /opt/docker/overseerr:/config
     ports:
-      - 5055:5055/tcp
+      - "5055:5055/tcp"
     networks:
       arrstack:
         ipv4_address: 172.20.0.10
     restart: unless-stopped
+
   radarr:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
@@ -44,11 +48,12 @@ services:
       - movies:/mnt/nas/movies
       - downloads:/app/qBittorrent/downloads
     ports:
-      - 7878:7878
+      - "7878:7878"
     networks:
       arrstack:
         ipv4_address: 172.20.0.15
     restart: unless-stopped
+
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
@@ -62,11 +67,12 @@ services:
       - shows:/mnt/nas/shows
       - downloads:/app/qBittorrent/downloads
     ports:
-      - 8989:8989
+      - "8989:8989"
     networks:
       arrstack:
         ipv4_address: 172.20.0.20
     restart: unless-stopped
+
   radarr-anime:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr-anime
@@ -80,11 +86,12 @@ services:
       - anime-movies:/mnt/nas/anime-movies
       - downloads:/app/qBittorrent/downloads
     ports:
-      - 6878:6878
+      - "6878:6878"
     networks:
       arrstack:
         ipv4_address: 172.20.0.25
     restart: unless-stopped
+
   sonarr-anime:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr-anime
@@ -98,11 +105,12 @@ services:
       - anime:/mnt/nas/anime
       - downloads:/app/qBittorrent/downloads
     ports:
-      - 7989:7989
+      - "7989:7989"
     networks:
       arrstack:
         ipv4_address: 172.20.0.30
     restart: unless-stopped
+
   unpackerr:
     image: ghcr.io/hotio/unpackerr
     container_name: unpackerr
@@ -127,22 +135,14 @@ services:
     networks:
       arrstack:
         ipv4_address: 172.20.0.35
-  tautulli:
-    image: ghcr.io/tautulli/tautulli
-    container_name: tautulli
-    hostname: tautulli
-    volumes:
-      - /opt/docker/tautulli:/config
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Detroit
-    ports:
-      - 8181:8181
-    networks:
-      arrstack:
-        ipv4_address: 172.20.0.40
-    restart: unless-stopped
+
+networks:
+  arrstack:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
 volumes:
   shows:
     external: true
@@ -154,9 +154,3 @@ volumes:
     external: true
   anime:
     external: true
-networks:
-  arrstack:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
