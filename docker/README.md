@@ -19,6 +19,7 @@
 - [Monitoring](./stacks/monitoring/) - InfluxDB and Grafana Stack for close to real-time stats.
 - [Peppermint](./stacks/peppermint/) - Peppermint Help Desk Compose File.
 - [phpIPAM](./stacks/phpipam/) - phpIPAM for docker to help manage IP's
+- [Plex Tools](./stacks/plex-tools) - Tools used with Plex Media Server. 
 - [Proxy Stack](./stacks/proxy/) - compose stack for cloudflare tunnels and playit.gg agent.
 - [Starr Stack](./stacks/starr-stack/) - compose stack to spin up an arr stack.
 - [Utility Stack](./stacks/utility/) - compose stack that contains watchtower and dozzle.
