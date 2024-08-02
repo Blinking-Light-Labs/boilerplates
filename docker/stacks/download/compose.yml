@@ -9,36 +9,15 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /opt/docker/sabnzbd/config:/config
-      - downloads:/downloads #optional
-      # - /path/to/incomplete/downloads:/incomplete-downloads #optional
+      - downloads:/mnt/media/downloads #optional
+      - downloads:/mnt/media/incomplete-downloads #optional
     ports:
       - 8080:8080
     networks:
       arrstack:
         ipv4_address: 172.20.0.55
     restart: unless-stopped
-  qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
-    container_name: qbittorrent
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-      - WEBUI_PORT=8080
-      - TORRENTING_PORT=6881
-    volumes:
-      - /opt/docker/qbittorrent/appdata:/config
-      - downloads:/downloads
-    ports:
-      - 9080:8080
-      - 6881:6881
-      - 6881:6881/udp
-    networks:
-      arrstack:
-        ipv4_address: 172.20.0.50
-    restart: unless-stopped  
-
-
+  
 volumes:
   shows:
     external: true
